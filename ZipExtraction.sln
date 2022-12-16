@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZipExtraction", "ZipExtraction\ZipExtraction.csproj", "{4A2D6F81-EC72-435A-B128-145F1C8E49E4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZipExtraction.Test", "ZipExtraction.Test\ZipExtraction.Test.csproj", "{9771194E-0FAC-4ECD-AAB3-4293BAB74CFE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{4A2D6F81-EC72-435A-B128-145F1C8E49E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A2D6F81-EC72-435A-B128-145F1C8E49E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A2D6F81-EC72-435A-B128-145F1C8E49E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9771194E-0FAC-4ECD-AAB3-4293BAB74CFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9771194E-0FAC-4ECD-AAB3-4293BAB74CFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9771194E-0FAC-4ECD-AAB3-4293BAB74CFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9771194E-0FAC-4ECD-AAB3-4293BAB74CFE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,5 +1,4 @@
 ﻿using Autofac;
-using Serilog;
 using ZipExtraction.Services;
 using ZipExtraction.Validators;
 
@@ -22,13 +21,11 @@ class Program
         
         //TODO after extracting a zip, shall the zip file be moved to somewhere else, or somehow marked as processed??
     }
-    
+
     private static IContainer BuildContainer()
     {
         var builder = new ContainerBuilder();
 
-        builder.RegisterInstance(Log.Logger).AsImplementedInterfaces();
-        
         builder.RegisterType<XmlValidator>().AsImplementedInterfaces();
         builder.RegisterType<ZipContentValidator>().AsImplementedInterfaces();
         builder.RegisterType<EmailService>().AsImplementedInterfaces();
@@ -37,6 +34,7 @@ class Program
     }
     
     //TODO register environment variables in Startup
+    //TODO register Serilog or equivalent
     /*
     services.Configure<ZipValidationConfiguration>(options =>
     {

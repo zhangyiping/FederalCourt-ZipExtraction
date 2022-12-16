@@ -6,7 +6,7 @@ namespace ZipExtraction.Validators;
 
 public class ZipContentValidator: IZipContentValidator
 {
-    public void ValidateZipContent(string zipPath)
+    public bool ValidateZipContent(string zipPath)
     {
         // TODO add all image file extensions
         // TODO instantiate a Configuration in Startup. Then, use the Options pattern to access individual settings
@@ -30,5 +30,7 @@ public class ZipContentValidator: IZipContentValidator
                     $"Invalid file found in zip. File name: {entry.FullName}");
             }
         }
+
+        return true;
     }
 }

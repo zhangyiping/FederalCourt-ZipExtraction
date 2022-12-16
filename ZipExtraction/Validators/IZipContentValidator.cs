@@ -2,5 +2,5 @@
 
 public interface IZipContentValidator
 {
-    void ValidateZipContent(string zipPath);
+    bool ValidateZipContent(string zipPath);
 }
