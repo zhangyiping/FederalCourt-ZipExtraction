@@ -21,13 +21,13 @@ public class ZipContentValidator: IZipContentValidator
         {
             throw new MissingPartyXmlException("party.XML file is not included in uploaded zip");
         }
-        foreach (var entry in zipArchiveEntries)
+        foreach (var fileName in fullFileNames)
         {
-            var extension = Path.GetExtension(entry.FullName);
+            var extension = Path.GetExtension(fileName);
             if (!validFileExtensions.Contains(extension, StringComparer.OrdinalIgnoreCase))
             {
                 throw new InvalidFileTypeException(
-                    $"Invalid file found in zip. File name: {entry.FullName}");
+                    $"Invalid file found in zip. File name: {fileName}");
             }
         }
 

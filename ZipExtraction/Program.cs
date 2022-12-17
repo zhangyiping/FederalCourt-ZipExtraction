@@ -10,9 +10,9 @@ class Program
     {
         var container = BuildContainer();
 
-        // TODO actually path in Federal Court server
+        // TODO actually path in Federal Court of Australia server
         var downloadsPath = Environment.ExpandEnvironmentVariables("%userprofile%/Downloads/");
-        var zipFileName = "sample valid zipfile.zip";
+        var zipFileName = "sample valid zipfile.zip"; // TODO iterate all zip files
         var zipPath = downloadsPath + zipFileName;
         
         var service = new ZipExtractService(container.Resolve<IZipContentValidator>(),
