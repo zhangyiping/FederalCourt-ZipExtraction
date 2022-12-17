@@ -10,16 +10,18 @@ namespace ZipExtraction.Validators;
 public class ZipContentValidator: IZipContentValidator
 {
     private readonly ILogger _logger;
+    private readonly ZipExtractionSetting _setting;
 
-    public ZipContentValidator(ILogger logger)
+    public ZipContentValidator(ILogger logger, IOptions<ZipExtractionSetting> setting)
     {
         _logger = logger;
+        _setting = setting.Value;
     }
 
     public bool ValidateZipContent(string zipPath)
     {
 
-        _logger.Information("Hello");
+        _logger.Information(_setting.ExtractedFolderLocation);
 
         // TODO add all image file extensions
         // TODO instantiate a Configuration in Startup. Then, use the Options pattern to access individual settings
