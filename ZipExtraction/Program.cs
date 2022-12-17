@@ -1,4 +1,8 @@
 ﻿using Autofac;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Serilog;
+using ZipExtraction.Configurations;
 using ZipExtraction.Services;
 using ZipExtraction.Validators;
 
@@ -8,6 +12,10 @@ class Program
 {
     static async Task Main(string[] args)
     {
+        Startup startup = new Startup();
+        IServiceCollection services = new ServiceCollection();
+        startup.ConfigureServices(services);
+        
         var container = BuildContainer();
 
         // TODO actually path in Federal Court of Australia server
@@ -26,20 +34,11 @@ class Program
     {
         var builder = new ContainerBuilder();
 
+        builder.RegisterInstance(Log.Logger).AsImplementedInterfaces();
         builder.RegisterType<XmlValidator>().AsImplementedInterfaces();
         builder.RegisterType<ZipContentValidator>().AsImplementedInterfaces();
         builder.RegisterType<EmailService>().AsImplementedInterfaces();
         
         return builder.Build();
     }
-    
-    //TODO register environment variables in Startup
-    //TODO register Serilog or equivalent
-    /*
-    services.Configure<ZipValidationConfiguration>(options =>
-    {
-        options.PartyXsdLocation = Configuration.GetValue<string>("PartyXsdLocation");
-        options.ValidFileExtensions = Configuration.GetValue<string>("ValidFileExtensions").Split(",").ToList();
-    });
-    */
 }

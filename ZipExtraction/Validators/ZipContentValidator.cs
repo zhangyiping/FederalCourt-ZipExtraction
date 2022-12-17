@@ -1,13 +1,26 @@
 ﻿using System.IO.Compression;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
+using Serilog;
+using ZipExtraction.Configurations;
 using ZipExtraction.Exceptions;
 
 namespace ZipExtraction.Validators;
 
 public class ZipContentValidator: IZipContentValidator
 {
+    private readonly ILogger _logger;
+
+    public ZipContentValidator(ILogger logger)
+    {
+        _logger = logger;
+    }
+
     public bool ValidateZipContent(string zipPath)
     {
+
+        _logger.Information("Hello");
+
         // TODO add all image file extensions
         // TODO instantiate a Configuration in Startup. Then, use the Options pattern to access individual settings
         
